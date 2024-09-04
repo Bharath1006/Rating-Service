@@ -81,11 +81,14 @@ ObjectMapper objectMapper;
         movieRatingUpdated.andDo(print())
                 .andExpect(status().isOk());
 
-        var fetchedRatedMovies = mockMvc.perform(get("/ratings/" + rating.getName() ));
+        var fetchedRatedMovies = mockMvc.perform(get("/ratings/" + request.getName() ));
         fetchedRatedMovies.andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(rated.getId())))
-                .andExpect(jsonPath("$.name", is(rated.getName())));
+                .andExpect(jsonPath("$.name", is(rated.getName())))
+                .andExpect(jsonPath("$.avgRating", is(rated.getAvgRating() + 1)))
+                .andExpect(jsonPath("$.count", is(rated.getCount() + 1)));
+
 
     }
 }
