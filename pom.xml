@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bharath</groupId>
-	<artifactId>Rating-Service</artifactId>
+	<artifactId>rating-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Rating-Service</name>
 	<description>Demo project for Spring Boot</description>
@@ -71,6 +71,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>docker.io/bharath1006/${project.artifactId}:${project.version}</name>
+						<publish>true</publish>
+					</image>
+					<docker>
+						<publishRegistry>
+							<username>${env.DOCKERHUB_USER}</username>
+							<password>${env.DOCKERHUB_PWD}</password>
+						</publishRegistry>
+					</docker>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -81,5 +91,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>

@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  application.yml: |
+    spring:
+      datasource:
+        url: jdbc:mysql://mysql:3306/sampledb
+        username: userG04
+        password: RMKSd6q4ysRL8K8r
+        driver-class-name: com.mysql.cj.jdbc.Driver
+      jpa:
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        hibernate:
+          ddl-auto: update
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: ratings-service-config

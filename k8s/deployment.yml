@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ratings-service
+  name: ratings-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ratings-service
+    spec:
+      containers:
+        - image: docker.io/bharath1006/ratings-service:0.0.1-SNAPSHOT
+          name: ratings-service
+          volumeMounts:
+            - mountPath: /app/config
+              name: ratings-service-config
+          env:
+            - name: SPRING_CONFIG_LOCATION
+              value: /app/config/
+      volumes:
+        - name: ratings-service-config
+          configMap:
+            name: ratings-service-config
+status: {}

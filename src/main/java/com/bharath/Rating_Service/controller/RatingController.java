@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.bharath.Rating_Service.service.RatingService;
 
-import java.util.Map;
 
 @Slf4j
 @RestController
