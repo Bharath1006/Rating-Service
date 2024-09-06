@@ -59,4 +59,5 @@ jobs:
         oc apply -f k8s/service.yml
         oc apply -f k8s/config.yml
         oc apply -f k8s/deployment.yml
-        oc rollout status deployment/ratings-service
+        
+        #oc rollout status deployment/ratings-service
